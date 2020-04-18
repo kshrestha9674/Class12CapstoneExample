@@ -1,26 +1,46 @@
-Automation to add owner using Katalon Studio
+Test Case 1:Automation Test Case 1: Automation to add owner using Katalon with Owner admin
 
-    1. Download latest version of Katalon Studio
-    2. Click File located top left corner and select new project.
-    3. Type Filename (Final Capstone) and click OK
-    4. Click Record Web and web recorder will open
-    5. Type https://clinic.doveryai-no-proveryai.com/ in URL box and select the browser of your choice (I used chrome)
-    6. Web will open in chrome browser and select owners
-    7. Select add new and enter information
-       First name: Mike
-       Last name: Dean
-       Address: 8456 Wall St
-       City: Austin
-       Phone: 1234567890
-    8. Click add owner
-    9. Pop up window will appear for log in
-    10. Enter username (admin) and password (admin) and click Sign in
-    11. Close window
-    12. Select Run to test the code
-    13. Test appeared to be failed
-    14. In web recorder Click on Item 1
-    15. Select drop down menu next to Add and select Web UI Keyboard
-    16. Select drop down menu from item to select navigate to URL
-    17. Double click on input and enter http://admin:admin@clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html" in input box
-    18. Select Run to test 
-    19. Test Pass
+WebUI.openBrowser('')
+
+WebUI.navigateToUrl('http://admin:admin@clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html"')
+
+WebUI.navigateToUrl('https://clinic.doveryai-no-proveryai.com/petclinic/')
+
+WebUI.click(findTestObject('Object Repository/Page_SpringPetclinicAngular/a_Owners'))
+
+WebUI.click(findTestObject('Object Repository/Page_SpringPetclinicAngular/span_Add New'))
+
+WebUI.setText(findTestObject('Object Repository/Page_SpringPetclinicAngular/input_First Name_firstName'), 'Mike ')
+
+WebUI.setText(findTestObject('Object Repository/Page_SpringPetclinicAngular/input_Last Name_lastName'), 'Dean')
+
+WebUI.setText(findTestObject('Object Repository/Page_SpringPetclinicAngular/input_Address_address'), '1234 Wall Street')
+
+WebUI.setText(findTestObject('Object Repository/Page_SpringPetclinicAngular/input_City_city'), 'Austin')
+
+WebUI.setText(findTestObject('Object Repository/Page_SpringPetclinicAngular/input_Telephone_telephone'), '1234567890')
+
+WebUI.click(findTestObject('Object Repository/Page_SpringPetclinicAngular/button_Add Owner'))
+
+WebUI.closeBrowser()
+
+
+Test Case 2: Automation to add Pet Type using Katalon Studio with Vet admin
+
+WebUI.openBrowser('')
+
+WebUI.navigateToUrl('http://vet_admin:admin@clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html')
+
+WebUI.navigateToUrl('https://clinic.doveryai-no-proveryai.com/petclinic/')
+
+WebUI.click(findTestObject('Object Repository/span_Pet Types'))
+
+WebUI.click(findTestObject('Object Repository/button_Add'))
+
+WebUI.setText(findTestObject('Object Repository/input_Name_name'), 'Rhino')
+
+WebUI.click(findTestObject('Object Repository/button_Save'))
+
+WebUI.closeBrowser()
+
+
